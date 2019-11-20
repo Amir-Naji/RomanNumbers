@@ -8,49 +8,58 @@ namespace UnitTestProject1
     public class UnitTest1
     {
         private readonly Program p = new Program();
+        private readonly IDivision div = new Division();
 
         [TestMethod]
         public void GetAllNumbersTest()
         {
-            var v = p.GetAllNumbers(2, 1);
+            var v = div.GetAllNumbers(2, 1);
             CollectionAssert.AreEqual(new List<int>() { 2 }, v);
 
-            v = p.GetAllNumbers(22, 1);
+            v = div.GetAllNumbers(22, 1);
             CollectionAssert.AreEqual(new List<int>() { 20, 2 }, v);
 
-            v = p.GetAllNumbers(222, 1);
+            v = div.GetAllNumbers(222, 1);
             CollectionAssert.AreEqual(new List<int>() { 200, 20, 2 }, v);
 
-            v = p.GetAllNumbers(2222, 1);
+            v = div.GetAllNumbers(2222, 1);
             CollectionAssert.AreEqual(new List<int>() { 2000, 200, 20, 2 }, v);
 
-            v = p.GetAllNumbers(1234567, 1);
+            v = div.GetAllNumbers(1234567, 1);
             CollectionAssert.AreEqual(new List<int>() { 1000000, 200000, 30000, 4000, 500, 60, 7 }, v);
         }
 
         [TestMethod]
         public void ConvertToRomanNumberSimpleTest()
         {
-            var romanNumber = p.ConvertToRomanNumber(p.GetAllNumbers(1, 1));
+            p.Factory();
+
+            var romanNumber = p.ConvertToRomanNumber(1);
             Assert.AreEqual("I", romanNumber);
 
-            romanNumber = p.ConvertToRomanNumber(p.GetAllNumbers(5, 1));
+            romanNumber = p.ConvertToRomanNumber(5);
             Assert.AreEqual("V", romanNumber);
 
-            romanNumber = p.ConvertToRomanNumber(p.GetAllNumbers(10, 1));
+            romanNumber = p.ConvertToRomanNumber(10);
             Assert.AreEqual("X", romanNumber);
 
-            romanNumber = p.ConvertToRomanNumber(p.GetAllNumbers(50, 1));
+            romanNumber = p.ConvertToRomanNumber(50);
             Assert.AreEqual("L", romanNumber);
 
-            romanNumber = p.ConvertToRomanNumber(p.GetAllNumbers(100, 1));
+            romanNumber = p.ConvertToRomanNumber(100);
             Assert.AreEqual("C", romanNumber);
 
-            romanNumber = p.ConvertToRomanNumber(p.GetAllNumbers(500, 1));
+            romanNumber = p.ConvertToRomanNumber(500);
             Assert.AreEqual("D", romanNumber);
 
-            romanNumber = p.ConvertToRomanNumber(p.GetAllNumbers(1000, 1));
+            romanNumber = p.ConvertToRomanNumber(1000);
             Assert.AreEqual("M", romanNumber);
+        }
+
+        [TestMethod]
+        public void ConvertToRomanComplicatedTest()
+        {
+
         }
     }
 }
