@@ -57,9 +57,27 @@ namespace UnitTestProject1
         }
 
         [TestMethod]
-        public void ConvertToRomanComplicatedTest()
+        public void CasesNumbersTest()
         {
+            p.Factory();
 
+            var romanNumber = p.ConvertToRomanNumber(4);
+            Assert.AreEqual("IV", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(9);
+            Assert.AreEqual("IX", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(40);
+            Assert.AreEqual("XL", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(90);
+            Assert.AreEqual("XC", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(400);
+            Assert.AreEqual("CD", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(900);
+            Assert.AreEqual("CM", romanNumber);
         }
     }
 }

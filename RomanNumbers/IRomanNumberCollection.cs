@@ -6,8 +6,8 @@ namespace RomanNumbers
 {
     public interface IRomanNumberCollection
     {
+        public Dictionary<int, string> ToRomanNumbers { get; set; }
         public Dictionary<string, int> RomanNumbersToNumbers();
 
-        public Dictionary<int, string> NumbersToRomanNumbers();
     }
 }

@@ -4,8 +4,16 @@ using System.Text;
 
 namespace RomanNumbers
 {
-    public class RomanNumberCollection: IRomanNumberCollection
+    public class RomanNumberCollection : IRomanNumberCollection
     {
+        public RomanNumberCollection()
+        {
+            AddRomanNumbers();
+            AddCasesRomanNumbers();
+        }
+
+        public Dictionary<int, string> ToRomanNumbers { get; set; } = new Dictionary<int, string>();
+
         public Dictionary<string, int> RomanNumbersToNumbers()
         {
             return new Dictionary<string, int>()
@@ -20,18 +28,25 @@ namespace RomanNumbers
             };
         }
 
-        public Dictionary<int, string> NumbersToRomanNumbers()
+        private void AddRomanNumbers()
         {
-            return new Dictionary<int, string>()
-            {
-                { 1, "I" },
-                { 5 , "V" },
-                { 10, "X" },
-                { 50, "L" },
-                { 100, "C" },
-                { 500, "D" },
-                { 1000, "M" }
-            };
+            ToRomanNumbers.Add(1, "I");
+            ToRomanNumbers.Add(5, "V");
+            ToRomanNumbers.Add(10, "X");
+            ToRomanNumbers.Add(50, "L");
+            ToRomanNumbers.Add(100, "C");
+            ToRomanNumbers.Add(500, "D");
+            ToRomanNumbers.Add(1000, "M");
+        }
+
+        private void AddCasesRomanNumbers()
+        {
+            ToRomanNumbers.Add(4, "IV");
+            ToRomanNumbers.Add(9, "IX");
+            ToRomanNumbers.Add(40, "XL");
+            ToRomanNumbers.Add(90, "XC");
+            ToRomanNumbers.Add(400, "CD");
+            ToRomanNumbers.Add(900, "CM");
         }
     }
 }

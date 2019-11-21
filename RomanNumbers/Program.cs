@@ -25,7 +25,7 @@ namespace RomanNumbers
             var numbers = RemoveZeroInList(division.GetAllNumbers(number, 1));
             foreach (var num in numbers)
             {
-                result += collections.NumbersToRomanNumbers()[num];
+                result += collections.ToRomanNumbers[num];
             }
             return result;
         }
