@@ -10,8 +10,8 @@ namespace RomanNumbers
             Console.WriteLine("Hello World!");
         }
 
-        IRomanNumberCollection collections;
-        IDivision division;
+        private IRomanNumberCollection collections;
+        private IDivision division;
 
         public void Factory()
         {
@@ -22,10 +22,10 @@ namespace RomanNumbers
         public string ConvertToRomanNumber(int number)
         {
             string result = "";
-            var numbers = RemoveZeroInList(division.GetAllNumbers(number, 1));
-            foreach (var num in numbers)
+            foreach (var num in
+                RemoveZeroInList(division.GetAllNumbers(number, 1)))
             {
-                result += collections.ToRomanNumbers[num];
+                result += collections.ConvertToRomanNumber(num);
             }
             return result;
         }

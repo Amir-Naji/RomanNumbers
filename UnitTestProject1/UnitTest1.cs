@@ -79,5 +79,26 @@ namespace UnitTestProject1
             romanNumber = p.ConvertToRomanNumber(900);
             Assert.AreEqual("CM", romanNumber);
         }
+
+        [TestMethod]
+        public void OtherNumbersTest()
+        {
+            p.Factory();
+
+            var romanNumber = p.ConvertToRomanNumber(2);
+            Assert.AreEqual("II", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(3);
+            Assert.AreEqual("III", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(6);
+            Assert.AreEqual("VI", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(123);
+            Assert.AreEqual("CXXIII", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(1236);
+            Assert.AreEqual("MCCXXXVI", romanNumber);
+        }
     }
 }

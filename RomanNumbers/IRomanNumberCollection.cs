@@ -6,7 +6,7 @@ namespace RomanNumbers
 {
     public interface IRomanNumberCollection
     {
-        public Dictionary<int, string> ToRomanNumbers { get; set; }
+        public string ConvertToRomanNumber(int number);
         public Dictionary<string, int> RomanNumbersToNumbers();
 
     }
