@@ -103,6 +103,9 @@ namespace UnitTestProject1
             romanNumber = p.ConvertToRomanNumber(777);
             Assert.AreEqual("DCCLXXVII", romanNumber);
 
+            romanNumber = p.ConvertToRomanNumber(888);
+            Assert.AreEqual("DCCCLXXXVIII", romanNumber);
+
             romanNumber = p.ConvertToRomanNumber(1236);
             Assert.AreEqual("MCCXXXVI", romanNumber);
 
