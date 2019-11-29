@@ -76,24 +76,33 @@ namespace RomanNumbers
             {
                 if (number < romanNumbers.Current.Number)
                 {
-                    return CreateExtraNumbers(romanNumbers.Perivous.Number, number);
+                    return CreateExtraNumbers(number);
                 }
+            }
+            // for now not bigger than 3000
+            if (number > 1000)
+            {
+                return CreateExtraNumbers(number);
             }
             return string.Empty;
         }
 
-
-        //Recursive is needed.
-        private string CreateExtraNumbers(int number, int actualNumber)
+        private string CreateExtraNumbers(int actualNumber)
         {
-            var result = "";
-            var currentNumber = number;
-            while(currentNumber <= actualNumber)
+            romanNumbers.MovePrevious();
+
+            if (actualNumber == 0)
+                return string.Empty;
+            if (actualNumber == romanNumbers.Current.Number)
+                return romanNumbers.Current.RomanNumber;
+
+            var returnValue = "";
+            while (actualNumber  >= romanNumbers.Current.Number)
             {
-                currentNumber += number;
-                result += romanNumbers.GetRomanNumber(number);
+                returnValue += romanNumbers.Current.RomanNumber;
+                actualNumber -= romanNumbers.Current.Number;
             }
-            return result;
+            return returnValue + CreateExtraNumbers(actualNumber);
         }
     }
 }

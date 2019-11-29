@@ -62,6 +62,12 @@ namespace RomanNumbers.Enumerable
             return position < romanNumerals.Count;
         }
 
+        public bool MovePrevious()
+        {
+            position--;
+            return position > -1;
+        }
+
         public void Reset()
         {
             position = -1;

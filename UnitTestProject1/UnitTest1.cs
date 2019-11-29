@@ -97,8 +97,17 @@ namespace UnitTestProject1
             romanNumber = p.ConvertToRomanNumber(123);
             Assert.AreEqual("CXXIII", romanNumber);
 
+            romanNumber = p.ConvertToRomanNumber(666);
+            Assert.AreEqual("DCLXVI", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(777);
+            Assert.AreEqual("DCCLXXVII", romanNumber);
+
             romanNumber = p.ConvertToRomanNumber(1236);
             Assert.AreEqual("MCCXXXVI", romanNumber);
+
+            romanNumber = p.ConvertToRomanNumber(3888);
+            Assert.AreEqual("MMMDCCCLXXXVIII", romanNumber);
         }
     }
 }
